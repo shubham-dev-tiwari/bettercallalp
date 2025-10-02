@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 3500)
     // Preload key image
-    new Image().src = 'https://media.iquanta.in/ui_images/gmat/Abhishek%20Sir.png'
+    new Image().src = 'src/assets/AbhishekSir.png'
     return () => clearTimeout(timer)
   }, [])
 
