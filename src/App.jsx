@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
-// Components
-import ThreeBackground from './components/common/ThreeBackground';
-import Loading from './components/common/Loading';
-import Navigation from './components/layout/Navigation';
+import ThreeBackground from './components/common/ThreeBackground'
+import Loading from './components/common/Loading'
+import Navigation from './components/layout/Navigation'
 
-// Pages
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import BooksPage from './pages/BooksPage'
@@ -15,26 +13,21 @@ import ServicesPage from './pages/ServicesPage'
 import PortfolioPage from './pages/PortfolioPage'
 import TestimonialsPage from './pages/TestimonialsPage'
 import ContactPage from './pages/ContactPage'
+
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3500);
+    const timer = setTimeout(() => setIsLoading(false), 3500)
+    // Preload key image
+    new Image().src = 'https://media.iquanta.in/ui_images/gmat/Abhishek%20Sir.png'
+    return () => clearTimeout(timer)
+  }, [])
 
-    // Preload critical resources
-    const preloadImages = [
-      'https://media.iquanta.in/ui_images/gmat/Abhishek%20Sir.png'
-    ];
-    
-    preloadImages.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-
-    return () => clearTimeout(timer);
-  }, []);
+  // Prevent background scroll when loading
+  useEffect(() => {
+    document.body.style.overflow = isLoading ? 'hidden' : 'auto'
+  }, [isLoading])
 
   return (
     <Router>
@@ -42,18 +35,20 @@ function App() {
         <AnimatePresence mode="wait">
           {isLoading && <Loading key="loading" />}
         </AnimatePresence>
-        
+
         {!isLoading && (
           <motion.div
             key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
             <ThreeBackground />
             <Navigation />
-            
-           <Routes>
+
+            <div className="pt-12 sm:pt-14 md:pt-16 lg:pt-20 xl:pt-24">
+              <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/books" element={<BooksPage />} />
@@ -62,11 +57,12 @@ function App() {
                 <Route path="/testimonials" element={<TestimonialsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
               </Routes>
+            </div>
           </motion.div>
         )}
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
