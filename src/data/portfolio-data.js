@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Abhishek Leela Pandey",
     title: "EdTech Leader × AI Filmmaker × Mathematician × Author",
     tagline: "40 Under 40 Winner | 100K+ Students | 6K+ IIM Converts | AI Film Pioneer",
-    profileImage: "/src/assets/AbhishekSir.png",
+    profileImage: "https://media.iquanta.in/ui_images/gmat/Abhishek%20Sir.png",
     youtubeChannel: "https://www.youtube.com/@BetterCallALP9",
     linkedin: "https://www.linkedin.com/in/abhishek-leela-pandey-ab7b4543",
   },
