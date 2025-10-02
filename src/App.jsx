@@ -25,9 +25,10 @@ function App() {
   }, [])
 
   // Prevent background scroll when loading
-  useEffect(() => {
-    document.body.style.overflow = isLoading ? 'hidden' : 'auto'
-  }, [isLoading])
+ useEffect(() => {
+  document.body.style.overflow = isLoading ? 'hidden' : 'auto';
+}, [isLoading]);
+
 
   return (
     <Router>
