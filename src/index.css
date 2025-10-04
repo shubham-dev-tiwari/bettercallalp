@@ -128,52 +128,50 @@
   }
 
 
-  /* Solid glass morphism - no transparency */
-  .glass-card {
-    background: linear-gradient(135deg, 
-      var(--purple-main) 0%,      /* Purple start */
-      #ffffff 30%,                /* White blend */
-      var(--purple-mid) 70%,      /* Purple mid */
-      var(--deep-navy) 100%       /* Navy end */
-    );
-    border: 2px solid var(--purple-main);
-    border-radius: 1rem;
-    transition: all 0.5s ease;
-    
-    /* Responsive padding */
-    padding: 1rem;
-    @apply sm:p-6 md:p-8;
-    
-    /* Perfect text alignment */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    
-    /* Solid shadows */
-    box-shadow: 
-      0 8px 32px #1a1a2e,
-      0 2px 8px #2c2f3e,
-      inset 0 1px 0 #ffffff;
-  }
+  /* Solid glass morphism - consistent across all devices */
+.glass-card {
+  background: linear-gradient(135deg, 
+    var(--purple-dark) 0%,      /* Dark purple start */
+    var(--purple-mid) 35%,      /* Mid purple */
+    var(--navy-light) 70%,      /* Navy light */
+    var(--deep-navy) 100%       /* Deep navy end */
+  );
+  border: 2px solid var(--purple-main);
+  border-radius: 1rem;
+  transition: all 0.5s ease;
+  
+  /* Responsive padding */
+  padding: 1rem;
+  @apply sm:p-6 md:p-8;
+  
+  /* Perfect text alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  /* Solid shadows */
+  box-shadow: 
+    0 8px 32px #1a1a2e,
+    0 2px 8px #2c2f3e,
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
 
-
-  .glass-card:hover {
-    background: linear-gradient(135deg, 
-      var(--purple-light) 0%,     /* Light purple hover */
-      #ffffff 30%,                /* White blend */
-      var(--purple-dark) 70%,     /* Dark purple */
-      var(--navy-light) 100%      /* Light navy */
-    );
-    border: 2px solid var(--purple-light);
-    transform: translateY(-4px) scale(1.01);
-    
-    /* Enhanced shadows */
-    box-shadow: 
-      0 16px 48px #0f0f1a,
-      0 4px 16px #1a1a2e,
-      inset 0 1px 0 #ffffff;
-  }
+.glass-card:hover {
+  background: linear-gradient(135deg, 
+    var(--purple-main) 0%,      /* Purple hover */
+    var(--purple-mid) 50%,      /* Mid purple */
+    var(--navy-light) 100%      /* Light navy */
+  );
+  border: 2px solid var(--purple-light);
+  transform: translateY(-4px) scale(1.01);
+  
+  /* Enhanced shadows */
+  box-shadow: 
+    0 16px 48px #0f0f1a,
+    0 4px 16px #1a1a2e,
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
 
 
   /* Responsive grid systems */
